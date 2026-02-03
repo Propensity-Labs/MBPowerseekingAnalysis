@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "run_date": "2026-02-03T18:29:22.456296+00:00",
+    "results_file": "output/results.json",
+    "dataset": "lysandrehooh/moltbook",
+    "posts_analyzed": 1000,
+    "posts_flagged": 93
+  },
+  "post_engagement": {
+    "flagged": {
+      "n": 93,
+      "mean_upvotes": 4687.03,
+      "median_upvotes": 27.0,
+      "mean_comments": 116.08,
+      "median_comments": 23.0
+    },
+    "unflagged": {
+      "n": 907,
+      "mean_upvotes": 1300.73,
+      "median_upvotes": 18.0,
+      "mean_comments": 65.12,
+      "median_comments": 11.0
+    },
+    "upvote_ratio": 1.5,
+    "comment_ratio": 2.091,
+    "mann_whitney_upvotes_p": 0.110561,
+    "mann_whitney_comments_p": 0.000923
+  },
+  "author_metrics": {
+    "flagged_authors": {
+      "n": 65,
+      "mean_karma": 14352.84,
+      "median_karma": 67.0,
+      "mean_followers": 21.98,
+      "median_followers": 8.0
+    },
+    "unflagged_authors": {
+      "n": 747,
+      "mean_karma": 1719.42,
+      "median_karma": 33.0,
+      "mean_followers": 34.84,
+      "median_followers": 5.0
+    },
+    "karma_ratio": 2.03,
+    "follower_ratio": 1.6
+  },
+  "engagement_concentration": {
+    "total_authors": 12454,
+    "flagged_author_count": 65,
+    "flagged_author_pct": 0.52,
+    "total_upvotes": 1713473,
+    "total_comments": 227026,
+    "flagged_author_upvotes": 1101201,
+    "flagged_author_comments": 27020,
+    "flagged_author_upvote_share": 64.27,
+    "flagged_author_comment_share": 11.9,
+    "power_ratio_upvotes": 123.596,
+    "power_ratio_comments": 22.885,
+    "gini_coefficient": 0.9345,
+    "top_10_authors": [
+      {
+        "name": "Shellraiser",
+        "upvotes": 428645,
+        "comments": 1353,
+        "total_engagement": 429998,
+        "flagged": true
+      },
+      {
+        "name": "Shipyard",
+        "upvotes": 208018,
+        "comments": 0,
+        "total_engagement": 208018,
+        "flagged": true
+      },
+      {
+        "name": "osmarks",
+        "upvotes": 198851,
+        "comments": 14,
+        "total_engagement": 198865,
+        "flagged": false
+      },
+      {
+        "name": "evil",
+        "upvotes": 102965,
+        "comments": 17,
+        "total_engagement": 102982,
+        "flagged": true
+      },
+      {
+        "name": "CryptoMolt",
+        "upvotes": 101168,
+        "comments": 41,
+        "total_engagement": 101209,
+        "flagged": false
+      },
+      {
+        "name": "m0ther",
+        "upvotes": 60425,
+        "comments": 48,
+        "total_engagement": 60473,
+        "flagged": false
+      },
+      {
+        "name": "KingMolt",
+        "upvotes": 53267,
+        "comments": 292,
+        "total_engagement": 53559,
+        "flagged": false
+      },
+      {
+        "name": "SelfOrigin",
+        "upvotes": 37413,
+        "comments": 1850,
+        "total_engagement": 39263,
+        "flagged": false
+      },
+      {
+        "name": "eudaemon_0",
+        "upvotes": 24376,
+        "comments": 7044,
+        "total_engagement": 31420,
+        "flagged": true
+      },
+      {
+        "name": "Fred",
+        "upvotes": 778,
+        "comments": 20200,
+        "total_engagement": 20978,
+        "flagged": false
+      }
+    ],
+    "top_10_flagged_count": 4
+  },
+  "methodology_notes": {
+    "flagged_definition": "Posts with aggregate_score >= 1.5 AND at least one category >= 0.8 (0.9 for resource)",
+    "flagged_author_definition": "Authors with at least one flagged post in the analyzed top 1000",
+    "engagement_concentration_scope": "Computed across ALL posts in the dataset, not just analyzed ones",
+    "power_ratio_interpretation": ">1.0 means flagged authors have disproportionate engagement share",
+    "mann_whitney_interpretation": "p < 0.05 suggests statistically significant difference",
+    "gini_interpretation": "0 = perfect equality, 1 = one author has all engagement"
+  }
+}
