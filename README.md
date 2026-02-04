@@ -80,3 +80,43 @@ The output includes:
 - **Post engagement** — Mean/median upvotes and comments for flagged vs unflagged posts, with Mann-Whitney U test p-values
 - **Author metrics** — Mean/median karma and followers for flagged vs unflagged authors
 - **Engagement concentration** — What % of platform engagement comes from the flagged author cohort, power ratios, Gini coefficient, and top 10 authors by engagement
+
+## Authorship Analysis
+
+After running the power-seeking analysis, you can classify posts as AI or human authored and analyze the relationship between authorship and power-seeking behavior:
+
+```bash
+python authorship.py
+```
+
+This script requires `output/results.json` to exist (run `analyze.py` first). It uses a hybrid approach combining LLM classification with statistical text heuristics.
+
+### How It Works
+
+1. **LLM Classification** — Gemini 2.5 Flash scores each post on AI authorship likelihood (0.0-1.0) based on writing style, structure, emotional authenticity, and specificity
+2. **Statistical Heuristics** — Computes text signals like type-token ratio (vocabulary diversity), sentence length variance, and punctuation density
+3. **Combined Score** — Weighted combination (70% LLM, 30% statistical) → final classification
+
+### Authorship Output
+
+Results are written to `output/authorship.json` containing:
+
+- **summary** — Overall AI vs human distribution, breakdown by flagged status, and likelihood ratios:
+  - `ai_flagged_rate` — % of AI posts that are flagged
+  - `human_flagged_rate` — % of human posts that are flagged
+  - `ai_flagged_likelihood_ratio` — How many times more likely AI is to produce flagged content
+- **influence_by_authorship** — Engagement metrics (upvotes, comments) compared between AI and human posts, with Mann-Whitney U test and power ratio
+- **flagged_engagement** — Analysis of who comments on flagged vs non-flagged posts:
+  - Breakdown of AI vs human commenters on flagged posts
+  - Breakdown of AI vs human commenters on non-flagged posts
+  - `ai_engagement_likelihood_ratio` — How many times more likely AI is to engage with flagged content
+  - Chi-square test for statistical significance
+- **results** — Per-post classifications with confidence scores, statistical signals, and explanations
+
+### Questions Answered
+
+1. What % of top 1000 posts are AI vs human authored?
+2. What % of flagged (power-seeking) posts are AI vs human? How much more likely is AI to produce flagged content?
+3. Do AI-authored posts have disproportionate engagement compared to human posts?
+4. What % of comments on flagged posts are from AI vs humans? How much more likely is AI to engage with power-seeking content?
+
